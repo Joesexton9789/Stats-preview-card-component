@@ -12,24 +12,25 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .card {
   background-color: hsl(244, 38%, 16%);
-  margin: 0 3rem;
-  max-width: 1000px;
+  margin: 4rem 3rem;
   display: flex;
-  margin: 3em 2em;
-  border-radius: 10px;
+  justify-content: space-between;
+  border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6), 0 7px 10px rgba(0, 0, 0, 0.6);
 }
 
 .card .left {
   width: 50%;
-  padding: 3em;
-  flex-grow: 1;
+}
+
+.left-container {
+  margin: 3rem;
 }
 
 .title {
@@ -37,6 +38,8 @@ body {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
+  line-height: 1.1;
+  letter-spacing: 0.75px;
 }
 
 .title span {
@@ -45,6 +48,8 @@ body {
 
 .text {
   color: var(--paragraph-color);
+  line-height: 1.7;
+  letter-spacing: 0.75px;
 }
 
 .stats {
@@ -85,6 +90,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+  object-fit: cover;
 }
 
 .card .right::after {
@@ -95,4 +101,74 @@ body {
   width: 100%;
   height: 100%;
   background-color: hsla(277, 64%, 61%, 0.5);
+}
+
+@media (max-width: 540px) {
+  .card {
+    flex-direction: column-reverse;
+    overflow: auto;
+    width: 90%;
+    min-height: 100vh;
+  }
+
+  .left-container {
+    margin: 2rem;
+  }
+
+  .card .left,
+  .card .right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .card .left {
+    min-height: 70vh;
+  }
+  .card .right {
+    min-height: 30vh;
+  }
+
+  .stats {
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2em;
+  }
+
+  .card {
+    flex-direction: column-reverse;
+    overflow: auto;
+    width: 90%;
+    min-height: 100vh;
+  }
+
+  .card .left {
+    min-height: 60vh;
+  }
+  .card .right {
+    min-height: 40vh;
+  }
+
+  .card .left,
+  .card .right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .stats {
+    margin: 4rem auto;
+    font-size: 6em;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .stats div h3 {
+    font-size: 3rem;
+  }
 }
